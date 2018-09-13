@@ -1,0 +1,40 @@
+/****************************************************************
+**
+** Qt tutorial 14
+**
+****************************************************************/
+
+#include <qapplication.h>
+#include <qtextcodec.h>
+#include "gameborad.h"
+
+//#define CHINESE
+#define ENGLISH
+
+#ifdef CHINESE
+static const QString qLanguage = "superapp_chn.qm";
+#else
+static const QString qLanguage = "superapp_eng.qm";
+#endif
+
+int main( int argc, char **argv )
+{
+    QApplication::setColorSpec( QApplication::CustomColor );
+    QApplication a( argc, argv );
+    //load language depart begin
+    QTranslator qt(0);
+    qt.load(qLanguage);
+
+    a.installTranslator(&qt);
+    QTranslator myapp(0);
+    myapp.load(qLanguage);
+
+    a.installTranslator(&myapp);
+    //load language depart end.
+
+    GameBoard gb;
+    gb.setGeometry( 100, 100, 700, 700 );
+    a.setMainWidget( &gb );
+    gb.show();
+    return a.exec();
+}

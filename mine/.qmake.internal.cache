@@ -1,0 +1,19 @@
+[check]
+QMAKE_CACHE_VERSION = 1.03a
+QMAKE_ABSOLUTE_SOURCE_PATH = 
+MOC_DIR = 
+UI_DIR = 
+UI_HEADERS_DIR = 
+UI_SOURCES_DIR = 
+[depend]
+gameborad.cpp = gameborad.h nim.h
+gameborad.h = nim.h
+main.cpp = gameborad.h nim.h
+nim.cpp = nim.h
+nim.h = 
+[mocable]
+gameborad.h = moc_gameborad.cpp
+nim.h = moc_nim.cpp
+gameborad.cpp = *qmake_ignore*
+main.cpp = *qmake_ignore*
+nim.cpp = *qmake_ignore*
